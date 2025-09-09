@@ -48,7 +48,6 @@ def delete_task():
     finally:
         print("Done deleting task")
 
-
         
 
 running = True
