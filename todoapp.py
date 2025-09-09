@@ -27,6 +27,28 @@ def view_tasks():
         print(i + 1, "-", tasks[i])
         i = i + 1
 
+def delete_task():
+    if len(tasks) == 0:
+        print("No tasks to delete.")
+        return
+
+    view_tasks()
+
+    try:
+        number_text = input("Please type the number of the task you want to delete: ")
+        number = int(number_text)
+    except ValueError:
+        print("Invalid input. Please type a number")
+    else:
+        if number < 1 or number > len(tasks):
+            print("That task number doesnt exist")
+        else:
+            removed = tasks.pop(number - 1)
+            print("Deleted:", removed)
+    finally:
+        print("Done deleting task")
+
+
         
 
 running = True
@@ -39,7 +61,7 @@ while running:
     elif choice == "2":
         view_tasks()
     elif choice == "3":
-        print("Delete task not built yet")
+        delete_task()
     elif choice == "4":
         print("Goodbye!")
         running = False
